@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/fonts.css" type="text/css">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <h1>Event Management System</h1>
+        <p>Your gateway to technology and innovation</p>
+    </header>
+
+    <nav>
+        <a href="@Url.Action("Index", "Home", new { area = "" })" class="icon icon-home">Home</a>
+        <a href="@Url.Action("Index", "Reviews")" class="icon icon-info-sign">About</a>
+        <a href="@Url.Action("Contact", "Home", new { area = "" })" class="icon icon-phone">Contact</a>
+       
+    </nav>
+
+
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+<footer>
+    <p>&copy; 2024 Event Management System | Website created by Gabangani Zamandla Xulu</p>
+
+  
+    <div class="social-icons">
+        <a href="https://github.com/ZamandlaXulu" class="icon icon-github" target="_blank">   Github</a>
+        <a href="https://www.linkedin.com/in/gabangani-xulu-1525202a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " class="icon icon-linkedin" target="_blank">     LinkedIn</a>
+         
+    </div>
+</footer>
+</body>
+</html>

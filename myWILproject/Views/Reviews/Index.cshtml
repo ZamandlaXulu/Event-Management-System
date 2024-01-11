@@ -1,0 +1,76 @@
+﻿@model IEnumerable<myWILproject.Models.Review>
+
+@{
+    ViewBag.Title = "About";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title> 
+</head>
+<body>
+    <center>
+        <section id="about">
+            <img src="~/Content/images/CTU-PTE_MAIN-LOGO.png" alt="CTU LOGO" style="width: 55%; height: auto;">
+
+            <h2>About Our Company</h2>
+            <p>Welcome to CTU Training Solutions Expo, where innovation meets excellence. We are a leading technology solutions provider dedicated to pushing the boundaries of what's possible in the digital landscape. Our mission is to empower individuals and organizations with cutting-edge technologies that drive meaningful change and progress.</p>
+
+            <h2>TECHSPO Johannesburg Event</h2>
+            <p>TECHSPO Johannesburg is our flagship event, bringing together visionaries, developers, brands, and enthusiasts to celebrate the latest advancements in technology. Scheduled for the 2nd and 3rd of November 2023 at the Ticket Pro Dome, this two-day expo is a convergence of ideas, showcasing the next generation of technology and innovation.</p>
+
+            <p>With an estimated 4,000 attendees, TECHSPO Johannesburg provides a platform for networking, learning, and exploring disruptive technologies such as the Internet of Things (IoT), robotics, virtual reality (VR), and artificial intelligence (AI). Our event is not just a conference; it's a journey into the Fourth Industrial Revolution, where the physical, digital, and biological worlds intersect to shape the future.</p>
+
+            <p>As part of the event, CTU Training Solutions is proud to present our 2nd-year programs, contributing to the development of future tech leaders. Join us as we launch TECHSPO 2023 under the theme "The Great Reset," reflecting our commitment to redefining how countries develop, organizations create value, and what it means to be human in this era of unprecedented technological change.</p>
+
+            <p>Be a part of the revolution. Experience TECHSPO Johannesburg with us!</p>
+        </section>
+
+        <section>
+            <h2>Customer Reviews</h2>
+            <p>Explore the feedback from our valued customers.</p>
+
+            <p>
+                @Html.ActionLink("Create New Review", "Create")
+            </p>
+
+            @if (Model.Any())
+            {
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Reviews</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Reviews)</td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ReviewID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.ReviewID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ReviewID })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No reviews available.</p>
+            }
+
+
+        </section>
+
+    </center>
+</body>
+</html>

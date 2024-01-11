@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+
+    <center>
+        <section id="event-details">
+            <h2>Event Details</h2>
+            <p><strong>Event Overview:</strong> Join us for an immersive experience at the TECHSPO Johannesburg, a two-day technology expo scheduled for the 2nd and 3rd of November 2023 at the Ticket Pro Dome.</p>
+            <img src="~/Content/images/homepage2.png" alt="Event Venue" style="width: 55%; height: auto;">
+            <p><strong>Agenda:</strong> Explore the schedule of cutting-edge sessions, featuring industry leaders and innovators. Learn about the latest trends in the Fourth Industrial Revolution, including IoT, robotics, VR, and AI.</p>
+            <p><strong>Registration:</strong> Don't miss out! Register for the event and take advantage of exclusive group registration discounts and voucher code offers.</p>
+        </section>
+
+        <section id="live-sessions">
+            <h2>Live Sessions</h2>
+            <p><strong>Live Session Schedule:</strong> Check out our real-time schedule of sessions, and join the live events to interact with top-notch speakers and thought leaders.</p>
+            <img src="~/Content/images/homepage1.png" alt="Live Sessions" style="width: 55%; height: auto;">
+            <p><strong>Speakers and Topics:</strong> Get insights from experts in the field as they discuss the transformative impact of the Fourth Industrial Revolution on our lives and work.</p>
+            <p><strong>Interactive Features:</strong> Engage with our speakers through live chat and Q&A, making this a truly immersive experience.</p>
+        </section>
+
+        <section id="upcoming-events">
+            <div id="upcoming-event">
+                <h3>Consumer Technology Association</h3>
+                <img src="~/Content/images/homepage3.png" alt="Event 1" style="width: 70%; height: auto;">
+                <p>Date: January 15, 2024</p>
+                <p>Location: Las Vegas</p>
+                <p>Join us for an exciting exploration of the latest in technology and innovation.</p>
+            </div>
+
+            <div id="upcoming-event">
+                <h3> Mobile World Congress</h3>
+                <img src="~/Content/images/homepage4.jpg" alt="Event 2" style="width: 55%; height: auto;">
+                <p>Date: February 20, 2024</p>
+                <p>Location: Cape Town</p>
+                <p>Don't miss the opportunity to connect with industry leaders and tech enthusiasts.</p>
+            </div>
+        </section>
+
+
+        <section id="social-marketing">
+            <h2>Social Marketing</h2>
+            <p><strong>Social Media Integration:</strong> Explore live feeds and posts related to the event on various social media platforms. Stay connected and share your experiences with social sharing options.</p>
+            <img src="~/Content/images/homepage5.jpg" alt="Social Marketing" style="width: 55%; height: auto;">
+            <p><strong>Facebook Promotion:</strong> Learn about our Facebook promotions and find links to the event's Facebook page for additional updates and engagement.</p>
+            <div class="social-icons">
+
+                <a href="#" class="icon icon-instagram" target="_blank"> </a>
+                <a href="#" class="icon icon-twitter" target="_blank"> </a>
+                <a href="#" class="icon icon-linkedin" target="_blank"> </a>
+                <a href="#" class="icon icon-facebook" target="_blank">   </a>
+            </div>
+        </section>
+
+
+        <section id="surveys-feedback">
+            <h2>Surveys & Feedback</h2>
+            <form id="surveyForm" action="#" method="post">
+                <label for="name">Name:</label>
+                <center><input type="text" id="name" name="name" required style="width: 50%;"></center>
+
+                <label for="email">Email:</label>
+                <center><input type="email" id="email" name="email" required style="width: 50%;"></center>
+
+                <label for="favorite-session">Favorite Session:</label>
+                <center><input type="text" id="favorite-session" name="favorite-session" required style="width: 50%;"></center>
+
+                <label for="feedback">Event Feedback:</label>
+                <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+                <center><button type="submit" style="width: 70%" onclick="submitForm()">Submit</button></center>
+            </form>
+        </section>
+        <section id="reviews">
+            <p><strong>Guest Reviews:</strong> Explore aggregated reviews and ratings from past attendees, helping you make the most of your event experience.</p>
+            <button style="width:70%" onclick="window.location.href='@Url.Action("Index", "Reviews")'">Go to reviews</button>
+
+        </section>
+
+    </center>
+
+    <script>
+        function submitSurveyForm() {
+            // Validate input fields
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var favoriteSession = document.getElementById("favorite-session").value;
+            var feedback = document.getElementById("feedback").value;
+
+            if (name.trim() === "" || email.trim() === "" || favoriteSession.trim() === "" || feedback.trim() === "") {
+                alert("Please fill in all the required fields.");
+            } else {
+                // Clear form inputs
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("favorite-session").value = "";
+                document.getElementById("feedback").value = "";
+
+                // Display success message
+                alert("Survey submitted successfully! Thank you for your feedback.");
+            }
+        }
+    </script>
+</main>
